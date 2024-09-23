@@ -1,5 +1,9 @@
 from django import forms
+from .models import Goroku
 
-class GorokuForm(forms.Form):
-    goroku = forms.CharField(label="語録")
-    num = forms.IntegerField(label="評価")
+class GorokuForm(forms.ModelForm):
+    class Meta:
+        model = Goroku
+
+        fields = ["goroku", "author", "age", "created_at", ]
+        labels = {"goroku": "語録", "author": "人物", "age": "年齢を教えてくれるかな", "created_at": "作成日時", }

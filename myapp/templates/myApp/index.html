@@ -4,7 +4,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>MyAppトップページ</title>
+    <title>{{ page_title }} / 今日の淫夢語録</title>
     <link rel="stylesheet" href="{% static "stylesheets/mainstyle.css" %}">
 </head>
 <body>
@@ -20,7 +20,12 @@
 <h3>保存されている淫夢語録</h3>
 {% for goroku in inmuList %}
     <ul>
-        <li>{{ goroku }}</li>
+        <li>{{ goroku.goroku }}</li>
+        <ul>
+            <li>by {{ goroku.author}}</li>
+            <li>{{ goroku.age}}歳</li>
+            <li>{{ goroku.created_at}}</li>
+        </ul>
     </ul>
 {% endfor %}
 
@@ -31,6 +36,5 @@
 
     <input type="submit" value="送信">
 </form>
-<p>送信されました：{{ insertedVar }}</p>
 </body>
 </html>
